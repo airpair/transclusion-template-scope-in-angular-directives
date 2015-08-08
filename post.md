@@ -1,8 +1,8 @@
 Synopsis
 
-Understanding scope is a vital part of writing robust Angular directives. It's one of those concepts that seems simple at first, but turns out to have some nuances that can make or break your app -- especially when transclusion comes into the mix or you begin to build directives on top of one another. 
+> Understanding scope is a vital part of writing robust Angular directives. It's one of those concepts that seems simple at first, but turns out to have some nuances that can make or break your app -- especially when transclusion comes into the mix or you begin to build directives on top of one another. 
 
-This post will delve into some of these scope-related nuances by explaining the scope hierarchy of an example application.  It assumes some prior knowledge of Angular directives and the Directive Definition Object (DDO), so if you're brand new at directives, I'd suggest taking a look at the [documentation](https://docs.angularjs.org/api/ng/service/$compile) first.
+>This post will delve into some of these scope-related nuances by explaining the scope hierarchy of an example application.  It assumes some prior knowledge of Angular directives and the Directive Definition Object (DDO), so if you're brand new at directives, I'd suggest taking a look at the [documentation](https://docs.angularjs.org/api/ng/service/$compile) first.
 
 Let's start with some basics.
 
