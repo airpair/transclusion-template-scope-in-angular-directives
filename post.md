@@ -6,7 +6,7 @@ Synopsis
 
 Let's start with some basics.
 
-## What is directive scope?
+## What is Directive scope?
 
 Typically, when developers refer to a directive's scope, they mean the scope bound to that directive's template during the linking phase.  This scope -- configurable through the `scope` property in the DDO -- is the execution context that Angular uses to look up any expressions defined in the template (such as {{ }} bindings).
 
@@ -42,7 +42,7 @@ Let's say we are building an application with the help of two components:
 
 We'll start with`ot-site`. Before jumping into its scope hierarchy, let's take a moment to review how it is structured.
 
-### Brief intro to transclusion
+### Angular Transclusion 101
 
 As mentioned before, we'd like to pass arbitrary content into the body of our scaffold, and the best way to do this is through transclusion.  If we make `ot-site` a transcluding directive, any HTML passed between its opening and closing tags will be transcluded into the template.  So if we want `ot-list` to appear in the body of the layout scaffold, our application markup might look like this:
 
@@ -88,7 +88,7 @@ angular.module("ot-components")
 
 So given that implementation, where does transclusion scope come in?
 
-### Template scope vs. transclusion scope
+### Template scope vs. Transclusion scope
 
 As a transcluding directive, `ot-site` essentially has two templates:
 1. its own internal template (header/logo/footer defined in `otSite.js`)
@@ -102,7 +102,9 @@ Because the templates are eventually combined in the DOM when the custom HTML is
 
 ***If you don't use the built-in transclusion functionality and transclude manually (by using the low-level transclude function), you can technically pass in whichever scope you'd like to be linked to the custom template. However, this is NOT recommended because it typically breaks bindings.*
 
-### Wait, what's a child scope?
+*Wait, what's a child scope?*
+
+### Child scopes & Scope Hierachy
 
 Let's take a step back for a moment. 
 
@@ -120,7 +122,7 @@ Child scopes in the hierarchy inherit prototypically from their parent scopes, a
 
 This hierarchy broadly mimics the DOM structure of the app.  Which scope is bound to a particular HTML tag does depend on where the tag falls in the DOM (with some notable exceptions in directives with isolate scope).  So if a tag is within a `div` that contains an `ng-controller` (which creates its own child scope), that tag will be within that controller scope's sphere of influence.
 
-### The current scope hierarchy
+### Angular Scope Hierarchy by example
 
 Let's zoom out and take a look at where the `ot-site` tag has been placed in `index.html`, so we can start to understand the scope hierarchy.
 
