@@ -22,7 +22,7 @@ For most directives, the template's scope is all you need to consider. However, 
 
 Given that brief introduction, let's dive into an example to dig into these concepts.
 
-## Scope example app
+## AngularJS Scopes example app
 
 Let's say we are building an application with the help of two components:
 
