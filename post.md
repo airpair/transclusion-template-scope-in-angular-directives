@@ -29,7 +29,7 @@ Let's say we are building an application with the help of two components:
 1.  a site-layout component called `ot-site`
 2.  a list component called `ot-list`
 
-![Example app](http://gdurl.com/yzvk)
+![Example app](https://i.imgur.com/fYBhOLv.png)
 
 `ot-site` provides the UI scaffold for our application: the static header, logo, and footer that will appear on every page. However, like any layout component, it has to allow the directive user to pass in some arbitrary, dynamic content for the body section, because that will inevitably change from page-to-page. Given these two requirements,  `ot-site` is a classic use case for transclusion.  Through `ot-site`, we can review how transclusion scope works*.
 
@@ -146,7 +146,7 @@ So where does the scope of `ot-site`'s custom template -- the transclusion scope
 
 ** scope hierarchy **
 
-![Scope hierarchy](http://gdurl.com/Hmv5)
+![Scope hierarchy](https://i.imgur.com/5UBVNmL.png)
 
 As a child of `AppController`, the custom template is perfectly set up to inherit any bindings it needs from the broader application. This makes sense for transclusion, because if you had to pass in each model to the directive explicitly, it wouldn't truly support arbitrary content. The directive itself would have to anticipate every potential toggle or piece of data, which has its limits.
 
@@ -156,7 +156,7 @@ So where does the actual `ot-site` template (the `divs` that represent the heade
 
 You may have noticed that we set an isolate scope for `ot-site`earlier (`scope: {}`), so unlike the transclusion scope, the scope for the template does **not** inherit prototypically from anything:
 
-![Full scope hierarchy](http://gdurl.com/Or2t)
+![Full scope hierarchy](https://i.imgur.com/F8Cwe4i.png)
 
 As such, it's removed from the prototype chain.  While the custom template can reach up to access bindings from the controller, the isolated template is protected from any leaking to or from the application (more on this later).
 
@@ -238,7 +238,7 @@ angular.module("ot-components")
 
 If we test that code, it will actually appear to work fine:
 
-![One list](http://gdurl.com/ZP_8)
+![One list](https://i.imgur.com/J3tKn17.png)
 
 [Play with the code demo here](http://codepen.io/kara/pen/jPQeXw)
 
@@ -279,7 +279,7 @@ angular.module("ot-components")
 
 If we look at the output for the two lists... 
 
-![Two lists (wrong)](http://gdurl.com/GrNP)
+![Two lists (wrong)](https://i.imgur.com/xriTsxl.png)
 
 ...something is obviously off.  Check out [the code demo](http://codepen.io/kara/pen/MwzPZr) and click around.
 
@@ -289,7 +289,7 @@ And if we click on either of lists to select something, both of the lists show t
 
 As foreshadowed, shared scope is the culprit here.  As the list directives aren’t defining their own scopes, you’ll remember that both of their templates are bound to whatever outer scope they were placed in.  Since we have transcluded the lists into the site scaffold, they are sharing the `ot-site` transclusion scope.
 
-![Shared scope diagram](http://gdurl.com/Qort)
+![Shared scope diagram](https://i.imgur.com/zP2IyaD.png)
 
 *Design credit: Simon Attley*
 
