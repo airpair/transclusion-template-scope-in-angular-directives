@@ -150,9 +150,8 @@ So where does the scope of `ot-site`'s custom template -- the transclusion scope
 
 As a child of `AppController`, the custom template is perfectly set up to inherit any bindings it needs from the broader application. This makes sense for transclusion, because if you had to pass in each model to the directive explicitly, it wouldn't truly support arbitrary content. The directive itself would have to anticipate every potential toggle or piece of data, which has its limits.
 
-### `ot-site` template scope
 
-So where does the actual `ot-site` template (the `divs` that represent the header and logo, etc) fall on that tree? 
+So where does the actual `ot-site` template (the `divs` that represent the header and logo, etc) fall in that tree? 
 
 You may have noticed that we set an isolate scope for `ot-site`earlier (`scope: {}`), so unlike the transclusion scope, the scope for the template does **not** inherit prototypically from anything:
 
@@ -509,7 +508,7 @@ angular.module("ot-components")
 
 ## Debugging tricks
 
-### `scope.$parent` gotcha
+### scope.$parent gotcha
 
 One thing to watch out for when debugging scope problems is `$parent` property on the scope object.  At first glance, you may assume that this property points to the parent that the scope inherits from - and this is *sometimes* true.  
 
