@@ -38,7 +38,7 @@ Let's say we are building an application with the help of two components:
 **This layout component and transclusion in general is discussed in more detail in a [previous blog post](https://www.airpair.com/angularjs/posts/creating-container-components-part-2-angular-1-directives).  Here, the implementation of `ot-site` is simplified, as our focus is on scope.*
 
 
-## `ot-site`: Transclusion scope
+## Transclusion scope
 
 We'll start with`ot-site`. Before jumping into its scope hierarchy, let's take a moment to review how it is structured.
 
@@ -162,7 +162,7 @@ As such, it's removed from the prototype chain.  While the custom template can r
 
 Now that we understand `ot-site`, let's take a look at `ot-list`.
 
-## `ot-list`: Template scope
+## Template scope
 
 The template  for `ot-list` is fairly straightforward. Basically, we're just iterating over a list of items with an `ng-repeat` and setting up a selection callback:
 
