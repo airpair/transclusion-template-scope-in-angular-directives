@@ -2,7 +2,7 @@ Synopsis
 
 > Understanding scope is a vital part of writing robust Angular directives. It's one of those concepts that seems simple at first, but turns out to have some nuances that can make or break your app -- especially when transclusion comes into the mix or you begin to build directives on top of one another. 
 
->This post will delve into some of these scope-related nuances by explaining the scope hierarchy of an example application.  It assumes some prior knowledge of Angular directives and the Directive Definition Object (DDO), so if you're brand new at directives, I'd suggest taking a look at the [documentation](https://docs.angularjs.org/api/ng/service/$compile) first.
+>This post will delve into some of these scope-related nuances by explaining the scope hierarchy of an example application.  It assumes some prior knowledge of Angular directives and the Directive Definition Object (DDO), so if you're brand new at directives, I'd suggest taking a look at the documentation first<sup>[Documentation for Angular 1.x directive API](https://docs.angularjs.org/api/ng/service/$compile)</sup>.
 
 Let's start with some basics.
 
@@ -18,11 +18,11 @@ There are three types of scope that you can configure for your directive's templ
 
 3. isolate scope (`scope: {}`)
 
-For most directives, the template's scope is all you need to consider. However, it's important to note that [directives that transclude](https://docs.angularjs.org/api/ng/service/$compile#transclusion) have a second scope in addition to the template scope: a transclusion scope that follows different rules. But more on that in a moment.
+For most directives, the template's scope is all you need to consider. However, it's important to note that directives that transclude<sup>[Documentation for transclusion](https://docs.angularjs.org/api/ng/service/$compile#transclusion)</sup> have a second scope in addition to the template scope: a transclusion scope that follows different rules. But more on that in a moment.
 
 Given that brief introduction, let's dive into an example to dig into these concepts.
 
-## Intro to example application
+## Scope example app
 
 Let's say we are building an application with the help of two components:
 
@@ -514,9 +514,11 @@ One thing to watch out for when debugging scope problems is `$parent` property o
 
 However, that's not a guarantee.  Though a transclusion scope inherits from the directive's outer context, its `parent` actually points to the directive scope.  It does **not** inherit from that scope.  The reference is set up this way to ensure that the transclusion scope is properly destroyed when the directive scope is destroyed.  
 
-## Conclusion
+## Recap
 
-I hope this overview was helpful.  For more information on Angular scopes, you may also want to check out [the documentation](https://docs.angularjs.org/guide/scope).  
+When choosing a scope for your directive, 
+
+I hope this overview was helpful.  For more information on Angular scopes, you may also want to check out <sup>[Documentation for Angular scope](https://docs.angularjs.org/guide/scope)</sup>.  
 
 Happy scoping!
 
