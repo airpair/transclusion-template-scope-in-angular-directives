@@ -325,14 +325,14 @@ angular.module("ot-components")
 When scope is `true`, each instance of the directive will create its own child scope in the outer scope. So each instance of `ot-list` here has its own copy of `items` and `selected`.  As sibling scopes, they won’t affect or overwrite each other’s variables. 
 
 
-![Child scope diagram](http://gdurl.com/uBNr)
+![Child scope diagram](https://i.imgur.com/VNSSYR3.png)
 
 *Design credit: Simon Attley*
 
 
 If we look at the output now that scope is `true`, we can see that our problem has been fixed.  Each list has its own set of data, and the selections move independently of one another.
 
-![Two lists (correct)](http://gdurl.com/LEhF)
+![Two lists (correct)](https://i.imgur.com/IhMcmwV.png)
 
 [See code demo here](http://codepen.io/kara/pen/VLVEOZ)
 
@@ -373,7 +373,7 @@ angular.module("ot-components")
 
 What does this do to our scope hierarchy?  It takes each `ot-list` instance out of the prototype chain and completely isolates it.
 
-![Isolate scope diagram](http://gdurl.com/3MFf)
+![Isolate scope diagram](https://i.imgur.com/gTcS9Ku.png)
 
 *Design credit: Simon Attley*
 
@@ -447,7 +447,7 @@ This also allows us to remove the curly braces from our markup and pass our vari
 
 If we run the code after all our improvements, the result will still work as expected:
 
-![Isolate scope lists](http://gdurl.com/LEhF)
+![Isolate scope lists](https://i.imgur.com/rXr31BO.png)
 
 [See code demo here](http://codepen.io/kara/pen/bdQQbW)
 
