@@ -88,7 +88,7 @@ angular.module("ot-components")
 
 So given that implementation, where does transclusion scope come in?
 
-### Transclusion scope
+### Template scope vs. transclusion scope
 
 As a transcluding directive, `ot-site` essentially has two templates:
 1. its own internal template (header/logo/footer defined in `otSite.js`)
