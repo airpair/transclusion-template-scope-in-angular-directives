@@ -453,7 +453,7 @@ If we run the code after all our improvements, the result will still work as exp
 Isolate scope is pretty great in that it protects your directive from any outside influence. However, it’s worth noting that there are some specific cases where isolate scope might not be the right choice.  For instance, if you are creating an attribute directive designed to work with other directives on the same element, an isolate scope doesn't really make sense.  Only one isolate scope is allowed per element, so Angular would throw an error. 
 
 
-## Angular 2 Directive scope
+## Angular 2 directive scope
 
 ### Scope differences in Angular 2
 
