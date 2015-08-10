@@ -509,7 +509,7 @@ angular.module("ot-components")
 
 [See the code demo here](http://codepen.io/kara/pen/rVRMrX)
 
-We can actually take this a step further.  Currently, we are setting up the controller as an anonymous function. To get as close as we can to Angular 2 component class syntax, we should pull it out into its own, named function.
+We can actually take this a step further.  Currently, we are setting up the controller as an anonymous function. To get as close as we can to Angular 2 component class syntax, we should pull it out into its own, named function, `ListController`.
 
 **otList.js**
 ```javascript
