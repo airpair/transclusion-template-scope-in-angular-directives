@@ -514,9 +514,17 @@ One thing to watch out for when debugging scope problems is `$parent` property o
 
 However, that's not a guarantee.  Though a transclusion scope inherits from the directive's outer context, its `parent` actually points to the directive scope.  It does **not** inherit from that scope.  The reference is set up this way to ensure that the transclusion scope is properly destroyed when the directive scope is destroyed.  
 
-## Recap
+## Summary
 
-When choosing a scope for your directive, 
+We've explored the various types of scope that exist in directives and their strengths and weaknesses.  
+
+Shared scope is risky for any directive with bindings, as it has the potential to overwrite properties and even break its outer environment. 
+
+Child scope can be a happy medium between shared scope and isolate scope - inheriting from its parent, but not able to influence anything outside of itself. That said, there is potential for properties in its outer context to leak inside and disrupt its functionality.  
+
+The only way to ensure that a directive's functionality is protected is to set up an isolate scope.  Given that data must be explicitly passed into the directive through the scope object, it is the safest choice.  However, it's not possible to use in all situations, given that only one isolate scope can be created per HTML element.
+
+Lastly, we can't forget that transcluding directives have a second scope, a transclusion scope that will always be able to access models from the broader application.
 
 I hope this overview was helpful.  For more information on Angular scopes, you may also want to check out <sup>[Documentation for Angular scope](https://docs.angularjs.org/guide/scope)</sup>.  
 
