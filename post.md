@@ -453,11 +453,15 @@ If we run the code after all our improvements, the result will still work as exp
 Isolate scope is pretty great in that it protects your directive from any outside influence. However, it’s worth noting that there are some specific cases where isolate scope might not be the right choice.  For instance, if you are creating an attribute directive designed to work with other directives on the same element, an isolate scope doesn't really make sense.  Only one isolate scope is allowed per element, so Angular would throw an error. 
 
 
-## Migrating to Angular 2
+## Angular 2 Directive scope
+
+### Scope differences in Angular 2
 
 With Angular 2 on the horizon, it's important to ensure that directives we write now are easily migratable.  To make our `ot-list` directive definition more portable, it would be wise to reduce our reliance on the `scope` and move that logic to the controller.
 
 This is because in Angular 2, views will be automatically bound to the component class directly, which allows you to maintain any necessary state or functionality on the class itself.  As such, scope is superfluous as a concept and won't be a part of writing directives.
+
+### Migrating directives to Angular 2
 
 So how can we reduce our reliance on scope?
 
@@ -505,6 +509,36 @@ angular.module("ot-components")
 
 [See the code demo here](http://codepen.io/kara/pen/rVRMrX)
 
+We can actually take this a step further.  Currently, we are setting up the controller as an anonymous function. To get as close as we can to Angular 2 component class syntax, we should pull it out into its own, named function.
+
+**otList.js**
+```javascript
+angular.module("ot-components")
+
+.directive("otList", function() {
+  return {
+    scope: {
+      items: "=",
+      selected: "="
+    },
+    bindToController: true,
+    controllerAs: "ctrl",
+    templateUrl: "ot-list.html"
+    controller: ListController
+  };
+})
+
+function ListController(){
+  this.selectItem = function(item) {
+    this.selected = item;
+  }
+}
+
+```
+
+[See updated code demo](http://codepen.io/kara/pen/EjMXGO)
+
+This way, when migrating to Angular 2, you already have your component class set up and ready to go.
 
 ## Debugging tricks
 
