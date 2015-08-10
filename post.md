@@ -42,7 +42,7 @@ Let's say we are building an application with the help of two components:
 
 We'll start with`ot-site`. Before jumping into its scope hierarchy, let's take a moment to review how it is structured.
 
-### How it works
+### Brief intro to transclusion
 
 As mentioned before, we'd like to pass arbitrary content into the body of our scaffold, and the best way to do this is through transclusion.  If we make `ot-site` a transcluding directive, any HTML passed between its opening and closing tags will be transcluded into the template.  So if we want `ot-list` to appear in the body of the layout scaffold, our application markup might look like this:
 
